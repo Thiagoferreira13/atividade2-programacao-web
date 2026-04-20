@@ -1,40 +1,55 @@
-// Seleciona elementos
-var root = document.documentElement;
-var btn = document.getElementById("themeToggle");
+window.addEventListener('DOMContentLoaded', event => {
 
-// Função para aplicar o tema
-function applyTheme(theme) {
-    // Define o tema no HTML
-    root.setAttribute("data-bs-theme", theme);
-    // Salva no localStorage
-    localStorage.setItem("theme", theme);
-    // Se o botão existir, atualiza o ícone
-    if (btn) {
-        if (theme === "dark") {
-            btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        } else {
-            btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        }
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleDesktop = document.getElementById("themeToggleDesktop");
+    const html = document.documentElement;
+
+    function setIcon(theme) {
+        const icon = theme === "dark"
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+        if (themeToggle) themeToggle.innerHTML = icon;
+        if (themeToggleDesktop) themeToggleDesktop.innerHTML = icon;
     }
-}
 
-// Verifica se já existe tema salvo
-var savedTheme = localStorage.getItem("theme");
+    // Carrega tema salvo
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        html.setAttribute("data-bs-theme", savedTheme);
+        setIcon(savedTheme);
+    }
 
-if (savedTheme) {
-    applyTheme(savedTheme);
-} else {
-    applyTheme("light");
-}
+    function toggleTheme() {
+        const currentTheme = html.getAttribute("data-bs-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        html.setAttribute("data-bs-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        setIcon(newTheme);
+    }
 
-// Evento de clique no botão
-if (btn) {
-    btn.addEventListener("click", function () {
-        var currentTheme = root.getAttribute("data-bs-theme");
-        if (currentTheme === "light") {
-            applyTheme("dark");
-        } else {
-            applyTheme("light");
-        }
+    if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+    if (themeToggleDesktop) themeToggleDesktop.addEventListener("click", toggleTheme);
+
+    // ===== código original =====
+    const sideNav = document.body.querySelector('#sideNav');
+    if (sideNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#sideNav',
+            rootMargin: '0px 0px -20%',
+        });
+    }
+
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+    );
+
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+            if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
+            }
+        });
     });
-}
+
+});
