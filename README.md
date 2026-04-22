@@ -12,7 +12,7 @@ Desenvolvimento de uma Página Pessoal como parte da Atividade Prática 2 da dis
  
 ## Versões
  
-O projeto está dividido em duas versões com o mesmo conteúdo, mas visuais e estruturas diferentes:
+O projeto está dividido em duas versões:
  
 | Versão | Framework |
 |--------|-----------|
