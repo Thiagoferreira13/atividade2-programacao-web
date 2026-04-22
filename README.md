@@ -14,7 +14,7 @@ Desenvolvimento de uma Página Pessoal como parte da Atividade Prática 2 da dis
  
 O projeto está dividido em duas versões:
  
-| Versão | Framework |
+| Framework | Versão|
 |--------|-----------|
 | Bootstrap | Bootstrap 5 |
 | Bulma | Bulma 0.9.4 |
