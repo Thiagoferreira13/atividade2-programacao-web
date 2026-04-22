@@ -14,7 +14,7 @@ Desenvolvimento de uma Página Pessoal como parte da Atividade Prática 2 da dis
  
 O projeto está dividido em duas versões com o mesmo conteúdo, mas visuais e estruturas diferentes:
  
-| Versão | Framework | Pasta | Demo |
-|--------|-----------|-------|------|
-| Bootstrap | Bootstrap 5 | `/bootstrap` | [Ver demo](https://thiagoferreira13.github.io/atividade2-programacao-web/) |
-| Bulma | Bulma 0.9.4 | `/bulma` | [Ver demo](https://thiagoferreira13.github.io/atividade2-programacao-web/bulma/) |
+| Versão | Framework |
+|--------|-----------|
+| Bootstrap | Bootstrap 5 |
+| Bulma | Bulma 0.9.4 |
