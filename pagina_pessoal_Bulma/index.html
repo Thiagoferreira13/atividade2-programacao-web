@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thiago Azevedo</title>
+
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
+
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar is-fixed-top" id="mainNav">
+    <div class="navbar-brand">
+        <a class="navbar-item brand-name" href="#hero">Thiago Azevedo</a>
+        <div class="navbar-burger" id="navBurger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="#sobre">Sobre</a>
+            <a class="navbar-item" href="#projetos">Projetos</a>
+            <a class="navbar-item" href="#habilidades">Habilidades</a>
+            <a class="navbar-item" href="#interesses">Interesses</a>
+            <a class="navbar-item" href="#contato">Contato</a>
+            <div class="navbar-item">
+                <button class="button is-small theme-btn" id="themeToggle" title="Alternar tema">
+                    <span class="icon"><i class="fas fa-moon"></i></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="section hero-section" id="hero">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="column is-narrow has-text-centered">
+                <figure class="image profile-image mx-auto">
+                    <img class="is-rounded" src="../img/perfil.png" alt="Foto de perfil de Thiago Azevedo" />
+                </figure>
+            </div>
+            <div class="column">
+                <p class="greeting-text">Olá, eu sou</p>
+                <h1 class="title is-2 hero-name">Thiago Ferreira Azevedo</h1>
+                <p class="subtitle is-6 hero-sub">
+                    Estudante de Ciência da Computação na UFLA, interessado em desenvolvimento web e em aprender mais sobre tecnologias e computação.
+                </p>
+                <div class="buttons mt-4">
+                    <a class="button is-primary" href="#projetos">
+                        <span class="icon"><i class="fas fa-diagram-project"></i></span>
+                        <span>Ver Projetos</span>
+                    </a>
+                    <a class="button is-primary is-outlined" href="#contato">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <span>Contato</span>
+                    </a>
+                    <a class="button is-dark is-outlined social-btn" href="https://github.com/Thiagoferreira13" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>GitHub</span>
+                    </a>
+                    <a class="button is-dark is-outlined social-btn" href="https://www.linkedin.com/in/thiago-ferreira-334333281" target="_blank">
+                        <span class="icon"><i class="fab fa-linkedin"></i></span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <div class="columns mt-4">
+                    <div class="column">
+                        <div class="info-card">
+                            <span class="icon-text">
+                                <span class="icon has-text-primary"><i class="fas fa-graduation-cap"></i></span>
+                                <strong>Curso</strong>
+                            </span>
+                            <p class="mt-1 secondary-text">Bacharelado em Ciência da Computação — UFLA</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="info-card">
+                            <span class="icon-text">
+                                <span class="icon has-text-primary"><i class="fas fa-bullseye"></i></span>
+                                <strong>Objetivo</strong>
+                            </span>
+                            <p class="mt-1 secondary-text">Aprimorar habilidades em web e participar de projetos práticos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SOBRE -->
+<section class="section" id="sobre">
+    <div class="container">
+        <h2 class="section-title">Sobre</h2>
+        <p class="section-subtitle">Uma breve descrição e trajetória.</p>
+        <div class="columns mt-4">
+            <div class="column is-7">
+                <div class="content-card">
+                    <p>Sou estudante de Ciência da Computação e gosto de construir aplicações web e aprender criando projetos.</p>
+                    <p class="secondary-text">Nesta página, apresento minhas habilidades, interesses e projetos desenvolvidos.</p>
+                </div>
+            </div>
+            <div class="column is-5">
+                <div class="content-card">
+                    <p class="is-size-7 has-text-weight-semibold mb-3" style="text-transform:uppercase;letter-spacing:.05em;">Informações rápidas</p>
+                    <div class="quick-info-item">
+                        <span class="icon has-text-primary"><i class="fas fa-location-dot"></i></span>
+                        <span><strong>Cidade:</strong> Lavras/MG</span>
+                    </div>
+                    <div class="quick-info-item">
+                        <span class="icon has-text-primary"><i class="fas fa-language"></i></span>
+                        <span><strong>Idiomas:</strong> Português, Inglês (intermediário)</span>
+                    </div>
+                    <div class="quick-info-item">
+                        <span class="icon has-text-primary"><i class="fas fa-laptop-code"></i></span>
+                        <span><strong>Área:</strong> Desenvolvimento Web</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJETOS -->
+<section class="section" id="projetos">
+    <div class="container">
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-subtitle">Alguns trabalhos já desenvolvidos.</p>
+        <div class="columns mt-4 is-multiline">
+
+            <div class="column is-12-mobile is-6-tablet is-4-desktop">
+                <div class="project-card">
+                    <div>
+                        <p class="has-text-weight-semibold mb-2">Jogo da Memória</p>
+                        <div class="tags mb-2">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <p class="is-size-7 secondary-text">Implementação do jogo com verificação de vitória, reinício e mudança de dificuldade.</p>
+                        <ul class="is-size-7 mt-2 ml-4" style="list-style:disc;">
+                            <li>Manipulação do DOM</li>
+                            <li>Grid Dinâmico</li>
+                        </ul>
+                    </div>
+                    <div class="buttons mt-4">
+                        <a class="button is-small is-outlined is-primary" href="https://github.com/Thiagoferreira13/jogo-da-memoria" target="_blank">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                            <span>Repositório</span>
+                        </a>
+                        <a class="button is-small is-primary" href="https://thiagoferreira13.github.io/jogo-da-memoria/" target="_blank">
+                            <span class="icon"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                            <span>Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-12-mobile is-6-tablet is-4-desktop">
+                <div class="project-card">
+                    <div>
+                        <p class="has-text-weight-semibold mb-2">Página Pessoal</p>
+                        <div class="tags mb-2">
+                            <span class="tag">HTML</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <p class="is-size-7 secondary-text">Implementação de página pessoal com seções e navegação responsiva.</p>
+                        <ul class="is-size-7 mt-2 ml-4" style="list-style:disc;">
+                            <li>Grid do Bootstrap</li>
+                            <li>Componentes (cards, navbar)</li>
+                        </ul>
+                    </div>
+                    <div class="buttons mt-4">
+                        <a class="button is-small is-outlined is-primary" href="https://github.com/Thiagoferreira13/atividade2-programacao-web" target="_blank">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                            <span>Repositório</span>
+                        </a>
+                        <a class="button is-small is-primary" href="https://github.com/Thiagoferreira13/atividade2-programacao-web" target="_blank">
+                            <span class="icon"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                            <span>Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-12-mobile is-6-tablet is-4-desktop">
+                <div class="project-card">
+                    <div>
+                        <p class="has-text-weight-semibold mb-2">API Automata</p>
+                        <div class="tags mb-2">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                        </div>
+                        <p class="is-size-7 secondary-text">API RESTful para simulação e teste de diferentes tipos de autômatos.</p>
+                        <ul class="is-size-7 mt-2 ml-4" style="list-style:disc;">
+                            <li>FastAPI / Uvicorn</li>
+                            <li>Pydantic / GraphViz</li>
+                            <li>automata-lib</li>
+                        </ul>
+                    </div>
+                    <div class="buttons mt-4">
+                        <a class="button is-small is-outlined is-primary" href="https://github.com/Thiagoferreira13/API-Automata" target="_blank">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                            <span>Repositório</span>
+                        </a>
+                        <a class="button is-small is-primary" href="https://github.com/Thiagoferreira13/API-Automata" target="_blank">
+                            <span class="icon"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                            <span>Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- HABILIDADES -->
+<section class="section" id="habilidades">
+    <div class="container">
+        <h2 class="section-title">Habilidades</h2>
+        <p class="section-subtitle">Tecnologias e competências.</p>
+        <div class="columns mt-4">
+            <div class="column is-6">
+                <div class="content-card">
+                    <p class="has-text-weight-semibold mb-3">Tecnologias</p>
+                    <div class="tags">
+                        <span class="tag is-primary">HTML</span>
+                        <span class="tag is-primary">CSS</span>
+                        <span class="tag is-primary">Java</span>
+                        <span class="tag is-primary">JavaScript</span>
+                        <span class="tag is-info is-light">Bootstrap</span>
+                        <span class="tag is-info is-light">Git/GitHub</span>
+                        <span class="tag is-info is-light">Python</span>
+                        <span class="tag is-info is-light">Django</span>
+                    </div>
+                    <hr />
+                    <p class="has-text-weight-semibold mb-2">Competências</p>
+                    <ul class="is-size-7 ml-4" style="list-style:disc;">
+                        <li>Construção de páginas responsivas</li>
+                        <li>Manipulação do DOM e eventos</li>
+                        <li>Organização de projetos e versionamento</li>
+                        <li>Boas práticas de legibilidade de código</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div class="content-card">
+                    <p class="has-text-weight-semibold mb-3">Nível de familiaridade</p>
+                    <div class="mb-4">
+                        <div class="skill-label">
+                            <span>HTML</span><span class="secondary-text is-size-7">Intermediário</span>
+                        </div>
+                        <progress class="progress is-primary" value="70" max="100"></progress>
+                    </div>
+                    <div class="mb-4">
+                        <div class="skill-label">
+                            <span>CSS</span><span class="secondary-text is-size-7">Básico-Intermediário</span>
+                        </div>
+                        <progress class="progress is-primary" value="55" max="100"></progress>
+                    </div>
+                    <div>
+                        <div class="skill-label">
+                            <span>JavaScript</span><span class="secondary-text is-size-7">Intermediário</span>
+                        </div>
+                        <progress class="progress is-primary" value="65" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- INTERESSES -->
+<section class="section" id="interesses">
+    <div class="container">
+        <h2 class="section-title">Interesses</h2>
+        <p class="section-subtitle">Áreas que gosto de estudar e pesquisar.</p>
+        <div class="columns mt-4">
+            <div class="column is-6">
+                <div class="content-card">
+                    <ul class="ml-4" style="list-style:disc;">
+                        <li>Desenvolvimento Web (frontend e backend)</li>
+                        <li>Banco de Dados e modelagem</li>
+                        <li>Algoritmos e estruturas de dados</li>
+                        <li>Engenharia de Software</li>
+                        <li>Dados e visualização</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div class="content-card">
+                    <p class="has-text-weight-semibold mb-2">Atividades</p>
+                    <p class="secondary-text is-size-7 mb-3">Participo de projetos acadêmicos e gosto de aprender criando coisas.</p>
+                    <div class="tags">
+                        <span class="tag">
+                            <span class="icon is-small"><i class="fas fa-book"></i></span>
+                            <span>Estudos</span>
+                        </span>
+                        <span class="tag">
+                            <span class="icon is-small"><i class="fas fa-people-group"></i></span>
+                            <span>Trabalho em equipe</span>
+                        </span>
+                        <span class="tag">
+                            <span class="icon is-small"><i class="fas fa-terminal"></i></span>
+                            <span>Projetos práticos</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTATO -->
+<section class="section" id="contato">
+    <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-subtitle">Como falar comigo.</p>
+        <div class="columns mt-4">
+            <div class="column is-6">
+                <div class="content-card">
+                    <div class="contact-item">
+                        <span class="icon has-text-primary"><i class="fas fa-envelope"></i></span>
+                        <span>thferreira147@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon has-text-primary"><i class="fab fa-github"></i></span>
+                        <a href="https://github.com/Thiagoferreira13" target="_blank" rel="noreferrer">github.com/Thiagoferreira13</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon has-text-primary"><i class="fab fa-linkedin"></i></span>
+                        <a href="https://www.linkedin.com/in/thiago-ferreira-334333281" target="_blank" rel="noreferrer">linkedin.com/in/thiago-ferreira</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div class="content-card">
+                    <div class="contact-item">
+                        <span class="icon has-text-primary"><i class="fab fa-instagram"></i></span>
+                        <a href="https://www.instagram.com/_thferr13/" target="_blank" rel="noreferrer">instagram.com/_thferr13</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon has-text-primary"><i class="fab fa-facebook"></i></span>
+                        <a href="https://www.facebook.com/thiago.ferreira.7739814" target="_blank" rel="noreferrer">facebook.com/thiago.ferreira</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon has-text-primary"><i class="fab fa-youtube"></i></span>
+                        <a href="https://www.youtube.com" target="_blank" rel="noreferrer">youtube.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
