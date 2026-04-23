@@ -1,485 +1,175 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="light">
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Página Pessoal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago Azevedo — Página Pessoal</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+        body {
+            background: #0d0f14;
+            color: #e8ecf0;
+            font-family: 'Syne', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            gap: 2.5rem;
+        }
 
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+        header {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: up .5s ease forwards;
+        }
 
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" />
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #4a5568;
+            margin-bottom: .9rem;
+        }
 
-    <!-- CSS -->
-    <link href="styles.css" rel="stylesheet" />
+        h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -.02em;
+            margin-bottom: .8rem;
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .8rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            width: 100%;
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: up .5s ease .18s forwards;
+        }
+
+        .card {
+            background: #13171f;
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 14px;
+            padding: 1.75rem;
+            text-decoration: none;
+            color: #e8ecf0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: border-color .2s, transform .2s;
+        }
+
+        .card:hover { transform: translateY(-4px); }
+        .card-bs:hover   { border-color: #7c4dff; }
+        .card-bulma:hover { border-color: #00d1b2; }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .62rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .25rem .6rem;
+            border-radius: 999px;
+            border: 1px solid;
+        }
+
+        .badge-bs    { color: #7c4dff; border-color: #7c4dff; background: rgba(124,77,255,.1); }
+        .badge-bulma { color: #00d1b2; border-color: #00d1b2; background: rgba(0,209,178,.1); }
+
+        .arrow {
+            color: #4a5568;
+            font-size: 1rem;
+            transition: transform .2s, color .2s;
+        }
+
+        .card:hover .arrow { transform: translate(3px,-3px); }
+        .card-bs:hover .arrow    { color: #7c4dff; }
+        .card-bulma:hover .arrow { color: #00d1b2; }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .card-desc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .75rem;
+            color: #4a5568;
+            line-height: 1.75;
+        }
+
+        footer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .62rem;
+            color: #2d3748;
+            letter-spacing: .08em;
+            opacity: 0;
+            animation: up .5s ease .35s forwards;
+        }
+
+        @keyframes up {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 520px) {
+            .cards { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
+<body>
 
-<body id="page-top">
-
-<!-- NAV -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand" href="#page-top">
-        <span class="d-block d-lg-none">Thiago Azevedo</span>
-        <span class="d-none d-lg-block">
-            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/perfil.png" alt="">
-        </span>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Botão de tema: visível no mobile (fora do collapse), oculto no desktop -->
-    <button id="themeToggle" class="btn btn-outline-light btn-sm d-lg-none ms-2" type="button" title="Alternar tema">
-        <i class="fa-solid fa-moon"></i>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experience">Projetos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
-            <li class="nav-item"><a class="nav-link" href="#interests">Interesses</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-        </ul>
-    </div>
-
-    <!-- Botão de tema: visível no desktop (fora do collapse, no fundo da sidenav) -->
-    <div id="theme-btn-desktop" class="d-none d-lg-flex align-items-center justify-content-center py-3 w-100">
-        <span class="small text-white-50 me-2">Tema</span>
-        <button id="themeToggleDesktop" class="btn btn-outline-light btn-sm" type="button" title="Alternar tema">
-            <i class="fa-solid fa-moon"></i>
-        </button>
-    </div>
-</nav>
-
-<div class="container-fluid p-0">
-
-<!-- Informações Básicas -->
-    <header id="top" class="resume-section py-5">
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                <h1>
-                    Olá! Eu sou 
-                    <span class="text-primary">Thiago Ferreira Azevedo</span>
-                </h1>
-
-                <p class="lead text-secondary">
-                    Estudante do curso de Ciência da Computação, interessado em desenvolvimento web e em aprender mais sobre tecnologias e computação.
-                </p>
-
-                <div class="d-flex flex-wrap gap-2">
-                    <a class="btn btn-primary" href="#experience">
-                        <i class="fa-solid fa-diagram-project me-2"></i>Ver Projetos
-                    </a>
-                    <a class="btn btn-outline-primary" href="#contact">
-                        <i class="fa-solid fa-envelope me-2"></i>Contato
-                    </a>
-                    <a class="btn btn-outline-secondary" href="https://github.com/Thiagoferreira13" target="_blank">
-                        <i class="fa-brands fa-github me-2"></i>GitHub
-                    </a>
-                    <a class="btn btn-outline-secondary" href="https://www.linkedin.com/in/thiago-ferreira-334333281" target="_blank">
-                        <i class="fa-brands fa-linkedin me-2"></i>LinkedIn
-                    </a>
-                </div>
-
-                <div class="my-5"></div>
-
-                <div class="row g-3">
-                    <div class="col-12 col-md-6">
-                        <div class="p-3 rounded-3 border bg-body-tertiary">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <i class="fa-solid fa-graduation-cap text-primary"></i>
-                                <strong>Curso</strong>
-                            </div>
-                            <p class="mb-0 text-secondary">
-                                Bacharelado em Ciência da Computação - Universidade Federal de Lavras (UFLA)
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <div class="p-3 rounded border bg-body-tertiary">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <i class="fa-solid fa-bullseye text-primary"></i>
-                                <strong>Objetivo</strong>
-                            </div>
-                            <p class="mb-0 text-secondary">
-                                Aprimorar habilidades em web (frontend e backend) e participar de projetos práticos no semestre.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
+<header>
+    <p class="eyebrow">GAC116 · Programação Web · 2026/1</p>
+    <h1>Thiago Ferreira<br>Azevedo</h1>
+    <p class="subtitle">Atividade Prática 2 — Escolha a versão da página.</p>
 </header>
 
-<!-- Sobre -->
-<hr class="m-0" />
-<section id="about" class="py-4">
-            <div class="container-fluid">
-                <div class="mb-3">
-                    <h2>Sobre</h2>
-                    <p class="text-secondary mb-0">Uma breve descrição do estudante e trajetória.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-12 col-lg-7">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="mb-2">
-                                    Sou estudante de Ciência da Computação e gosto de construir aplicações web e aprender criando projetos.
-                                </p>
-                                <p class="mb-0 text-secondary">
-                                    Nesta página, apresento minhas habilidades, interesses e projetos desenvolvidos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-5">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h6 mb-3">Informações rápidas</h3>
-                                <ul class="list-unstyled mb-0">
-                                    <li class="d-flex gap-2 mb-2">
-                                        <i class="fa-solid fa-location-dot text-primary mt-1"></i>
-                                        <div><strong>Cidade:</strong> Lavras/MG</div>
-                                    </li>
-                                    <li class="d-flex gap-2 align-items-start mb-2">
-                                        <i class="fa-solid fa-language mt-1 text-primary"></i>
-                                        <div><strong>Idiomas:</strong> Português, Inglês (intermediário)</div>
-                                    </li>
-                                    <li class="d-flex gap-2">
-                                        <i class="fa-solid fa-laptop-code text-primary mt-1"></i>
-                                        <div><strong>Área:</strong> Desenvolvimento Web</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<hr class="m-0" />
-
-<!-- PROJETOS -->
-<!-- PROJETOS -->
-<section id="experience" class="py-4">
-    <div class="container-fluid">
-        <div class="section-title">
-            <h2>Projetos</h2>
-            <p class="text-secondary mb-0">Alguns trabalhos já desenvolvidos.</p>
+<div class="cards">
+    <a class="card card-bs" href="pagina_pessoal_bootstrap/pagina_bootstrap.html" target="_blank">
+        <div class="card-top">
+            <span class="badge badge-bs">Framework #1</span>
+            <span class="arrow">↗</span>
         </div>
+        <p class="card-title">Bootstrap</p>
+        <p class="card-desc">Versão desenvolvida com Bootstrap 5.</p>
+    </a>
 
-        <div class="row g-4 mt-1">
-
-            <!-- PROJETO 1 -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body d-flex flex-column">
-
-                        <div>
-                            <h3 class="h6 mb-2">Jogo da Memória</h3>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge text-bg-secondary">HTML</span>
-                                <span class="badge text-bg-secondary">CSS</span>
-                                <span class="badge text-bg-secondary">JavaScript</span>
-                            </div>
-                        </div>
-
-                        <p class="text-secondary small">
-                            Implementação do jogo com verificação de vitória, reinício. Além de permitir mudança de dificuldade.
-                        </p>
-
-                        <ul class="small mb-4">
-                            <li>Listas</li>
-                            <li>Manipulação do DOM</li>
-                            <li>Grid Dinâmico</li>
-                            <li>Grid Dinâmico</li>
-                        </ul>
-
-                        <div class="mt-auto d-flex gap-2">
-                            <a class="btn btn-sm btn-outline-primary" href="https://github.com/Thiagoferreira13/jogo-da-memoria" target="_blank">
-                                <i class="fa-brands fa-github me-1"></i>Repositório
-                            </a>
-                            <a class="btn btn-sm btn-primary" href="https://thiagoferreira13.github.io/jogo-da-memoria/" target="_blank">
-                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Demo
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJETO 2 -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body d-flex flex-column">
-
-                        <div>
-                            <h3 class="h6 mb-2">Página Pessoal</h3>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge text-bg-secondary">HTML</span>
-                                <span class="badge text-bg-secondary">Bootstrap</span>
-                                <span class="badge text-bg-secondary">FontAwesome</span>
-                                <span class="badge text-bg-secondary">CSS</span>
-                                <span class="badge text-bg-secondary">JavaScript</span>
-                            </div>
-                        </div>
-
-                        <p class="text-secondary small">
-                            Implementação de página pessoal com seções e navegação.
-                        </p>
-
-                        <ul class="small mb-4">
-                            <li>Classes do Bootstrap</li>
-                            <li>Grid do Bootstrap</li>
-                            <li>Componentes (cards, navbar)</li>
-                        </ul>
-
-                        <div class="mt-auto d-flex gap-2">
-                            <a class="btn btn-sm btn-outline-primary" href="https://github.com/Thiagoferreira13/atividade2-programacao-web" target="_blank">
-                                <i class="fa-brands fa-github me-1"></i>Repositório
-                            </a>
-                            <a class="btn btn-sm btn-primary" href="https://github.com/Thiagoferreira13/atividade2-programacao-web" target="_blank">
-                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Demo
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJETO 3 -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body d-flex flex-column">
-
-                        <div>
-                            <h3 class="h6 mb-2">API Automata</h3>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge text-bg-secondary">Frontend</span>
-                            </div>
-                        </div>
-                        <p class="text-secondary small">
-                            Uma API RESTful desenvolvida com FastAPI para simulação e teste de diferentes tipos de autômatos
-                        </p>
-
-                        <ul class="small mb-4">
-                            <li>Python (versão 3.7+)</li>
-                            <li>FastAPI</li>
-                            <li>Uvicorn</li>
-                            <li>Pydantic</li>
-                            <li>GraphViz</li>
-                            <li>automata-lib</li>
-                        </ul>
-
-                        <div class="mt-auto d-flex gap-2">
-                            <a class="btn btn-sm btn-outline-primary" href="https://github.com/Thiagoferreira13/API-Automata" target="_blank">
-                                <i class="fa-brands fa-github me-1"></i>Repositório
-                            </a>
-                            <a class="btn btn-sm btn-primary" href="https://github.com/Thiagoferreira13/API-Automata" target="_blank">
-                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Demo
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
+    <a class="card card-bulma" href="pagina_pessoal_Bulma/pagina_bulma.html" target="_blank">
+        <div class="card-top">
+            <span class="badge badge-bulma">Framework #2</span>
+            <span class="arrow">↗</span>
         </div>
-    </div>
-</section>
-
-<hr class="m-0" />
-
-<!-- HABILIDADES -->
-<section id="skills" class="py-4">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h2>Habilidades</h2>
-                <p class="text-secondary mb-0">Tecnologias e competências.</p>
-            </div>
-            <div class="row g-4 mt-1">
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h6">Tecnologias</h3>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge rounded-pill text-bg-primary">HTML</span>
-                                <span class="badge rounded-pill text-bg-primary">CSS</span>
-                                <span class="badge rounded-pill text-bg-primary">Java</span>
-                                <span class="badge rounded-pill text-bg-primary">JavaScript</span>
-                                <span class="badge rounded-pill text-bg-secondary">Bootstrap</span>
-                                <span class="badge rounded-pill text-bg-secondary">Git/GitHub</span>
-                                <span class="badge rounded-pill text-bg-secondary">Python</span>
-                                <span class="badge rounded-pill text-bg-secondary">Django</span>
-                            </div>
-                            <hr>
-                            <h3 class="h6">Competências</h3>
-                            <ul class="mb-0">
-                                <li>Construção de páginas responsivas</li>
-                                <li>Manipulação do DOM e eventos</li>
-                                <li>Organização de projetos e versionamento</li>
-                                <li>Boas práticas de legibilidade de código</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h6">Nível de familiaridade (exemplo)</h3>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between">
-                                    <span>HTML</span><span class="text-secondary small">Intermediário</span>
-                                </div>
-                                <div class="progress" role="progressbar" aria-label="HTML" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar" style="width: 70%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between">
-                                    <span>CSS</span><span class="text-secondary small">Básico-Intermediário</span>
-                                </div>
-                                <div class="progress" role="progressbar" aria-label="CSS" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar" style="width: 55%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-0">
-                                <div class="d-flex justify-content-between">
-                                    <span>JavaScript</span><span class="text-secondary small">Intermediário</span>
-                                </div>
-                                <div class="progress" role="progressbar" aria-label="JavaScript" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar" style="width: 65%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<hr class="m-0" />
-
-<!-- INTERESSES -->
-<section id="interests" class="py-4">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h2>Interesses</h2>
-                <p class="text-secondary mb-0">Áreas que eu gosto de estudar/pesquisar.</p>
-            </div>
-            <div class="row g-4 mt-1">
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <ul class="mb-0">
-                            <li>Desenvolvimento Web (frontend e backend)</li>
-                            <li>Banco de Dados e modelagem</li>
-                            <li>Algoritmos e estruturas de dados</li>
-                            <li>Engenharia de Software</li>
-                            <li>Dados e visualização</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h6">Atividades</h3>
-                            <p class="text-secondary mb-2">
-                                Participo de projetos acadêmicos e gosto de aprender criando coisas.
-                            </p>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge text-bg-light border"><i class="fa-solid fa-book me-1"></i>Estudos</span>
-                                <span class="badge text-bg-light border"><i class="fa-solid fa-people-group me-1"></i>Trabalho em equipe</span>
-                                <span class="badge text-bg-light border"><i class="fa-solid fa-terminal me-1"></i>Projetos práticos</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<hr class="m-0" />
-
-<!-- CONTATO -->
-<section id="contact" class="py-4">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h2>Contato</h2>
-                <p class="text-secondary mb-0">Como falar comigo.</p>
-            </div>
-            <div class="row g-4 mt-1">
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <ul class="list-unstyled mb-0">
-                                <li class="d-flex gap-2 align-items-center mb-2">
-                                    <i class="fa-solid fa-envelope text-primary"></i>
-                                    <span>thferreira147@gmail.com</span>
-                                </li>
-                                <li class="d-flex gap-2 align-items-center mb-2">
-                                    <i class="fa-brands fa-github text-primary"></i>
-                                    <a class="link-underline link-underline-opacity-0" href="https://github.com/Thiagoferreira13" target="_blank" rel="noreferrer">
-                                        github.com/Thiagoferreira13
-                                    </a>
-                                </li>
-                                <li class="d-flex gap-2 align-items-center">
-                                    <i class="fa-brands fa-linkedin text-primary"></i>
-                                    <a class="link-underline link-underline-opacity-0" href="https://www.linkedin.com/in/thiago-ferreira-334333281" target="_blank" rel="noreferrer">
-                                        linkedin.com/in/thiago-ferreira
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <ul class="list-unstyled mb-0">
-                                <li class="d-flex gap-2 align-items-center mb-2">
-                                    <i class="fa-brands fa-instagram text-primary"></i>
-                                    <a class="link-underline link-underline-opacity-0" href="https://www.instagram.com/_thferr13/" target="_blank" rel="noreferrer">
-                                        instagram.com/_thferr13/
-                                    </a>
-                                </li>
-                                <li class="d-flex gap-2 align-items-center mb-2">
-                                    <i class="fa-brands fa-facebook text-primary"></i>
-                                    <a class="link-underline link-underline-opacity-0" href="https://www.facebook.com/thiago.ferreira.7739814" target="_blank" rel="noreferrer">
-                                        facebook.com/thiago.ferreira
-                                    </a>
-                                </li>
-                                <li class="d-flex gap-2 align-items-center">
-                                    <i class="fa-brands fa-youtube text-primary"></i>
-                                    <a class="link-underline link-underline-opacity-0" href="https://www.youtube.com" target="_blank" rel="noreferrer">
-                                        youtube.com
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+        <p class="card-title">Bulma</p>
+        <p class="card-desc">Versão desenvolvida com Bulma 0.9.</p>
+    </a>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<footer>UFLA · Ciência da Computação · Thiago Ferreira Azevedo</footer>
 
 </body>
 </html>
